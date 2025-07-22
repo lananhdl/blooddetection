@@ -76,7 +76,7 @@ Một website phát hiện tế bào máu tiên tiến sử dụng mô hình SSD
 ### 📋 Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/lananhdl/blooddetection.git
 cd SSD_Detection
 ```
 
