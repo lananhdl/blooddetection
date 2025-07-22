@@ -1,6 +1,6 @@
 # 🩸AI-Powered Medical Analysis
 
-Một website phát hiện tế bào máu tiên tiến sử dụng mô hình SSD (Single Shot MultiBox Detector) với khả năng phân tích **cả ảnh và video YouTube**. Ứng dụng có thể phát hiện và phân loại các loại tế bào máu: Tiểu cầu (Platelets), Hồng cầu (RBC), và Bạch cầu (WBC) với **bounding boxes trực quan** và **thống kê chi tiết**.
+Một website phát hiện tế bào máu tiên tiến sử dụng mô hình SSD (Single Shot Detector) với khả năng phân tích **cả ảnh và video YouTube**. Ứng dụng có thể phát hiện và phân loại các loại tế bào máu: Tiểu cầu (Platelets), Hồng cầu (RBC), và Bạch cầu (WBC) với **bounding boxes trực quan** và **thống kê chi tiết**.
 
 ## 🌟 Tính năng nổi bật
 
@@ -372,4 +372,4 @@ Dự án được phát triển sử dụng mô hình SSD cho phát hiện tế 
 - **Framework**: FastAPI + React
 - **Tính năng đặc biệt**: YouTube Video Analysis
 
-## 🌟 **Chúng em xin chân thành cảm ơn thầy Thái và thầy Khoa!**# blooddetection
+## 🌟 **Chúng em xin chân thành cảm ơn thầy Thái và thầy Khoa!**
