@@ -19,7 +19,7 @@ Một website phát hiện tế bào máu tiên tiến sử dụng mô hình SSD
 - **Toggle view**: Chuyển đổi giữa ảnh gốc ↔ ảnh có bounding boxes
 - **Video statistics**: Thống kê tổng quan cho toàn bộ video
 
-### 🖼️ **Frame Viewer trực quan** ⭐ NEW!
+### 🖼️ **Frame Viewer trực quan**
 - **Visual bounding boxes**: Hiển thị detection trực tiếp trên frame
 - **Color-coded detection**: Màu sắc riêng cho từng loại tế bào
 - **Confidence scores**: Hiển thị độ tin cậy của mỗi detection
