@@ -202,7 +202,7 @@ docker-compose up -d --build
    - Chi tiết detection khi click
 4. **Tải xuống**: Save ảnh kết quả
 
-### 🎥 **Tab "YouTube Video"** ⭐ NEW!
+### 🎥 **Tab "YouTube Video"**
 
 1. **Nhập URL**: Paste URL YouTube (video hoặc shorts)
    ```
