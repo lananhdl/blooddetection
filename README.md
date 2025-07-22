@@ -1,4 +1,4 @@
-# Đồ Án Ứng Dụng SSD- 🩸AI-Powered Medical Analysis
+# Đồ Án Ứng Dụng SSDs
 
 Đồ án này là của Nhóm 10 trong khuôn khổ đồ án môn Học máy ứng dụng - Phát hiện tế bào máu sử dụng mô hình SSD (Single Shot Detector) với khả năng phân tích **cả ảnh và video YouTube**. Ứng dụng có thể phát hiện và phân loại các loại tế bào máu: Tiểu cầu (Platelets), Hồng cầu (RBC), và Bạch cầu (WBC) với **bounding boxes trực quan** và **thống kê chi tiết**.
 
