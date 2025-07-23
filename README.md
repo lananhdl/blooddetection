@@ -353,7 +353,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 👨‍💻 Tác giả & Liên hệ
 
-Dự án được phát triển sử dụng mô hình SSD cho phát hiện tế bào máu với khả năng phân tích video YouTube.
+Nhóm 10
 
 ### 📧 **Liên hệ:**
 - **Email 1**: 24C11002@student.edu.vn
