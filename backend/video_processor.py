@@ -11,6 +11,7 @@ import torch
 from pathlib import Path
 import base64
 import io
+from moviepy.editor import VideoFileClip
 
 class YouTubeVideoProcessor:
     def __init__(self, model, device, class_names):
@@ -87,10 +88,19 @@ class YouTubeVideoProcessor:
     def detect_in_frame(self, frame: np.ndarray, confidence_threshold: float = 0.5) -> tuple[List[Dict], Image.Image]:
         """Phát hiện tế bào trong 1 frame và trả về kết quả + ảnh gốc"""
         try:
-            # Convert numpy array to PIL Image
             pil_image = Image.fromarray(frame)
             original_size = pil_image.size
-            
+
+            # --- ZOOM vào giữa frame ---
+            zoom_factor = 1.0  # Có thể chỉnh 1.2, 1.5, 2.0 tùy ý
+            new_w, new_h = int(original_size[0] / zoom_factor), int(original_size[1] / zoom_factor)
+            left = (original_size[0] - new_w) // 2
+            top = (original_size[1] - new_h) // 2
+            right = left + new_w
+            bottom = top + new_h
+            pil_image = pil_image.crop((left, top, right, bottom))
+            # --- KẾT THÚC ZOOM ---
+
             # Resize để inference
             resized_image = pil_image.resize((300, 300))
             
@@ -184,9 +194,8 @@ class YouTubeVideoProcessor:
                     width=3
                 )
                 
-                # Vẽ label và confidence
-                label_text = f"{class_name}: {confidence:.2f}"
-                
+                # Vẽ label và confidence (HIỂN THỊ PHẦN TRĂM)
+                label_text = f"{class_name}: {confidence * 100:.1f}%"
                 # Tính toán vị trí text
                 try:
                     bbox = draw.textbbox((0, 0), label_text, font=font)
@@ -308,3 +317,14 @@ class YouTubeVideoProcessor:
             shutil.rmtree(self.temp_dir)
         except:
             pass 
+
+def process_video_with_boxes(self, input_path, output_path):
+    def process_frame(frame):
+        # Detect + vẽ box trên frame
+        pil_image = Image.fromarray(frame)
+        # ... detect, vẽ box như các hàm hiện tại ...
+        # Trả về numpy array
+        return np.array(pil_image_with_boxes)
+    clip = VideoFileClip(input_path)
+    new_clip = clip.fl_image(process_frame)
+    new_clip.write_videofile(output_path, audio=False) 

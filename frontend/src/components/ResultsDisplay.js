@@ -30,9 +30,9 @@ const ResultsDisplay = ({ results, originalImage, onReset }) => {
 
   const getClassColor = (className) => {
     const colors = {
-      'Platelets': '#FFD700',
-      'RBC': '#FF6B6B',
-      'WBC': '#4ECDC4'
+      'Platelets': '#00FF00', // xanh lá
+      'RBC': '#0000FF',       // xanh dương
+      'WBC': '#800080'        // tím
     };
     return colors[className] || '#888888';
   };
@@ -116,7 +116,7 @@ const ResultsDisplay = ({ results, originalImage, onReset }) => {
                       <Text
                         x={x1 * scaleX}
                         y={y1 * scaleY - 25}
-                        text={`${detection.class_name} (${(detection.confidence * 100).toFixed(1)}%)`}
+                        text={`${detection.class_name}: ${(detection.confidence * 100).toFixed(1)}%`}
                         fontSize={14}
                         fontFamily="Inter"
                         fill={getClassColor(detection.class_name)}

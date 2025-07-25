@@ -5,6 +5,8 @@ import YouTubeUploader from './components/YouTubeUploader';
 import ResultsDisplay from './components/ResultsDisplay';
 import VideoResultsDisplay from './components/VideoResultsDisplay';
 import Header from './components/Header';
+import axios from "axios";
+import DirectVideoPlayer from './components/DirectVideoPlayer';
 
 function App() {
   const [activeTab, setActiveTab] = useState('image'); // 'image' or 'video'
@@ -56,6 +58,13 @@ function App() {
                 >
                   🎥 YouTube Video
                 </button>
+                {/* <button 
+                  className={`tab-btn ${activeTab === 'video-direct' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('video-direct')}
+                  disabled={loading}
+                >
+                  Video trực tiếp
+                </button> */}
               </div>
 
               {/* Content based on active tab */}
@@ -72,6 +81,7 @@ function App() {
                   setLoading={setLoading}
                 />
               )}
+              {activeTab === 'video-direct' && <DirectVideoPlayer />}
             </>
           ) : (
             <>

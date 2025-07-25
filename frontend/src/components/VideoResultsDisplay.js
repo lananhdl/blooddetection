@@ -7,9 +7,9 @@ const VideoResultsDisplay = ({ results, onReset }) => {
 
   const getClassColor = (className) => {
     const colors = {
-      'Platelets': '#FFD700',
-      'RBC': '#FF6B6B',
-      'WBC': '#4ECDC4'
+     'Platelets': '#00FF00', // xanh lá
+  'RBC': '#0000FF',       // xanh dương
+  'WBC': '#FF00FF'  
     };
     return colors[className] || '#888888';
   };

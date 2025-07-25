@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 import torch
 import torchvision
 from torchvision.transforms import transforms
@@ -15,6 +15,7 @@ from typing import List, Dict
 import os
 from video_processor import YouTubeVideoProcessor
 from pydantic import BaseModel
+import uuid
 
 app = FastAPI(title="Blood Cell Detection API - Trained Model", version="1.0.0")
 
@@ -290,6 +291,23 @@ async def get_video_limits():
         "supported_formats": ["mp4", "webm"],
         "note": "Video sẽ được tự động resize và sample để tối ưu xử lý"
     }
+
+@app.post("/process-youtube-video")
+async def process_youtube_video(request: YouTubeVideoRequest):
+    url = request.url
+    output_path = f"output_{uuid.uuid4().hex}.mp4"
+    try:
+        # 1. Download video
+        video_path = video_processor.download_youtube_video(url)
+        # 2. Detect + vẽ box + ghép lại
+        video_processor.process_video_with_boxes(video_path, output_path)
+        # 3. Trả về file video kết quả
+        return FileResponse(output_path, media_type="video/mp4", filename="detected.mp4")
+    except Exception as e:
+        return {"error": str(e)}
+    finally:
+        # Xóa file tạm nếu cần
+        pass
 
 if __name__ == "__main__":
     import uvicorn
